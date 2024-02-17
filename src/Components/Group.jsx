@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import AddTask from './AddTask';
-import './Group.css'
+import Task from './Task';
+import './Group.css';
 
 const Group = () => {
   const [tasks, setTasks] = useState([]);
 
-  // Function to handle adding a task 
+  // Function to handle adding a task
   const handleAddTask = (newTask) => {
     setTasks([...tasks, newTask]);
   };
@@ -22,11 +23,12 @@ const Group = () => {
       {/* Render tasks */}
       <ul>
         {tasks.map((task, index) => (
-          <li key={index}><span>{task.title}</span> - <span>Priority: {task.priority}</span></li>
+          // Pass each task object as a prop to the Task component
+          <Task key={index} task={task} />
         ))}
       </ul>
       {/* Button to clear all tasks */}
-      <button onClick={handleClearTasks} >Clear Tasks</button>
+      <button onClick={handleClearTasks}>Clear Tasks</button>
     </div>
   );
 };

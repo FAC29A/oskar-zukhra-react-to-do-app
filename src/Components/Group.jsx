@@ -5,7 +5,7 @@ import './Group.css';
 
 const Group = () => {
   const [tasks, setTasks] = useState([]);
-  const [groupName, setGroupName] = useState('To-Do Group');
+  const [groupName, setGroupName] = useState('Name of the group');
 
   // Function to handle adding a task
   const handleAddTask = (newTask) => {

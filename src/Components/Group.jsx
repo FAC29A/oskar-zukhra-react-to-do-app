@@ -5,6 +5,7 @@ import './Group.css';
 
 const Group = () => {
   const [tasks, setTasks] = useState([]);
+  const [groupName, setGroupName] = useState('Name of the group');
 
   // Function to handle adding a task
   const handleAddTask = (newTask) => {
@@ -41,9 +42,18 @@ const Group = () => {
     setTasks([]);
   };
 
+  const handleGroupNameChange = (e) => {
+    setGroupName(e.target.value);
+  };
+
   return (
     <div className="group-container">
-      <h2>To-Do Group</h2>
+      <input
+        type="text"
+        value={groupName}
+        onChange={handleGroupNameChange}
+        className="group-name-input"
+      />
       <AddTask onAddTask={handleAddTask} />
       {/* Render tasks */}
       {tasks.map((task) => (

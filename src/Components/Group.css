@@ -25,4 +25,21 @@
   .group-container button:hover {
     background-color: #0056b3;
   }
+
+  .group-name-input {
+    font-size: 24px; /* Bigger font size */
+    font-weight: bold; /* Bold text */
+    border-top: none; /* No border on the top */
+    border-right: none; /* No border on the right */
+    border-left: none;
+    border-bottom: 1px solid #ce1515;
+    border-radius: 0%!important;
+    padding: 8px; /* Padding */
+  }
+  
+  .group-name-input:focus {
+    outline: none; /* Remove focus outline */
+    border: 1px solid blue; /* Change border color on focus */
+  }
+  
   

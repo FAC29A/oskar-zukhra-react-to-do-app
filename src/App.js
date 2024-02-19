@@ -1,5 +1,5 @@
 import './App.css';
-import Group from './Components/Group';
+import GroupsContainer from './Components/GroupsContainer';
 import Search from './Components/Search';
 
 function App() {
@@ -7,7 +7,7 @@ function App() {
     <div className="App">
       <header>To-Do App</header>
       <Search />
-      <Group />
+      <GroupsContainer />
     </div>
   );
 }

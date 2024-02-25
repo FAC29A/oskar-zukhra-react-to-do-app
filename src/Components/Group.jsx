@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import AddTask from './AddTask';
-import Task from './Task';
-import './Group.css';
+import React, { useState } from "react";
+import AddTask from "./AddTask";
+import Task from "./Task";
+import "./Group.css";
 
 const Group = () => {
   const [tasks, setTasks] = useState([]);
-  const [groupName, setGroupName] = useState('Name of the group');
+  const [groupName, setGroupName] = useState("Name of the group");
   const [isAddTaskOpen, setIsAddTaskOpen] = useState(false);
 
   // Function to handle adding a task
@@ -56,18 +56,20 @@ const Group = () => {
         onChange={handleGroupNameChange}
         className="group-name-input"
       />
-      <button onClick={() => setIsAddTaskOpen(true)}>Add Task</button>
-      <button onClick={handleClearTasks}>Clear Tasks</button>
+      <div className="button-container">
+        <button onClick={() => setIsAddTaskOpen(true)}>Add Task</button>
+        <button onClick={handleClearTasks}>Clear Tasks</button>
+      </div>
       {isAddTaskOpen ? (
-      <AddTask
-        isOpen={isAddTaskOpen}
-        onClose={() => {
-          console.log("Closing modal");
-          setIsAddTaskOpen(false);
-        }}
-        onAddTask={handleAddTask}
-      />
-    ) : null}
+        <AddTask
+          isOpen={isAddTaskOpen}
+          onClose={() => {
+            console.log("Closing modal");
+            setIsAddTaskOpen(false);
+          }}
+          onAddTask={handleAddTask}
+        />
+      ) : null}
       {tasks.map((task) => (
         <ul>
           <Task

@@ -12,6 +12,12 @@
   margin-top: 0;
 }
 
+.button-container {
+  margin: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
 .group-container button {
   margin-top: 10px; /* Add space between the tasks and the Clear button */
   padding: 10px 20px;

@@ -41,9 +41,33 @@
   border-bottom: 1px solid #ce1515;
   border-radius: 0% !important;
   padding: 8px; /* Padding */
+  width: 100%; /* Take full width of the container */
+  box-sizing: border-box;
 }
 
 .group-name-input:focus {
   outline: none; /* Remove focus outline */
   border: 1px solid blue; /* Change border color on focus */
+}
+
+@media screen and (max-width: 1024px) {
+  .group-container {
+    width: calc(40% - 40px); /* Adjusted width for tablet screens */
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .button-container {
+    flex-direction: column; /* Stack buttons vertically */
+    align-items: center; /* Center buttons horizontally */
+  }
+
+  .button-container button {
+    width: 100%; /* Set button width to 100% */
+    margin-bottom: 10px; /* Add some space between buttons */
+  }
+
+  .group-container {
+    width: 80%;
+  }
 }

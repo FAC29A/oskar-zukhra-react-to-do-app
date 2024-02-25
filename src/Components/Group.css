@@ -1,45 +1,73 @@
 .group-container {
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 20px;
-    margin: 20px;
-    width: 25%;
-    float: left;
-    padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  margin: 20px;
+  margin-top: 50px;
+  width: 25%;
+  float: left;
+}
+
+.group-container h2 {
+  margin-top: 0;
+}
+
+.button-container {
+  margin: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.group-container button {
+  margin-top: 10px; /* Add space between the tasks and the Clear button */
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.group-container button:hover {
+  background-color: #0056b3;
+}
+
+.group-name-input {
+  font-size: 24px; /* Bigger font size */
+  font-weight: bold; /* Bold text */
+  border-top: none; /* No border on the top */
+  border-right: none; /* No border on the right */
+  border-left: none;
+  border-bottom: 1px solid #ce1515;
+  border-radius: 0% !important;
+  padding: 8px; /* Padding */
+  width: 100%; /* Take full width of the container */
+  box-sizing: border-box;
+}
+
+.group-name-input:focus {
+  outline: none; /* Remove focus outline */
+  border: 1px solid blue; /* Change border color on focus */
+}
+
+@media screen and (max-width: 1024px) {
+  .group-container {
+    width: calc(40% - 40px); /* Adjusted width for tablet screens */
   }
-  
-  .group-container h2 {
-    margin-top: 0; 
-  }
-  
-  .group-container button {
-    margin-top: 10px; /* Add space between the tasks and the Clear button */
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .group-container button:hover {
-    background-color: #0056b3;
+}
+
+@media screen and (max-width: 768px) {
+  .button-container {
+    flex-direction: column; /* Stack buttons vertically */
+    align-items: center; /* Center buttons horizontally */
   }
 
-  .group-name-input {
-    font-size: 24px; /* Bigger font size */
-    font-weight: bold; /* Bold text */
-    border-top: none; /* No border on the top */
-    border-right: none; /* No border on the right */
-    border-left: none;
-    border-bottom: 1px solid #ce1515;
-    border-radius: 0%!important;
-    padding: 8px; /* Padding */
+  .button-container button {
+    width: 100%; /* Set button width to 100% */
+    margin-bottom: 10px; /* Add some space between buttons */
   }
-  
-  .group-name-input:focus {
-    outline: none; /* Remove focus outline */
-    border: 1px solid blue; /* Change border color on focus */
+
+  .group-container {
+    width: 80%;
   }
-  
-  
+}

@@ -1,18 +1,9 @@
 import React, { useState } from 'react';
 import './AddTask.css'
 
-const AddTask = ({ onAddTask }) => {
-  const [isOpen, setIsOpen] = useState(false);
+const AddTask = ({ isOpen, onClose, onAddTask  }) => {
   const [title, setTitle] = useState('');
   const [priority, setPriority] = useState('');
-
-  const openModal = () => {
-    setIsOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsOpen(false);
-  };
 
   const handleTitleChange = (event) => {
     setTitle(event.target.value);
@@ -27,7 +18,7 @@ const AddTask = ({ onAddTask }) => {
     event.preventDefault();
     if (title.trim() !== '' && priority.trim() !== '') {
       onAddTask({ title, priority });
-      closeModal();
+      onClose();
       setTitle('');
       setPriority('');
     }
@@ -35,11 +26,9 @@ const AddTask = ({ onAddTask }) => {
 
   return (
     <div>
-      <button onClick={openModal}>Add Task</button>
-      {isOpen && (
         <div className="modal">
           <div className="modal-content">
-            <span className="close" onClick={closeModal}>&times;</span>
+            <span className="close" onClick={onClose}>&times;</span>
             <form onSubmit={handleSubmit}>
               <label htmlFor="title">Title:</label>
               <input type="text" id="title" value={title} onChange={handleTitleChange} />
@@ -54,7 +43,6 @@ const AddTask = ({ onAddTask }) => {
             </form>
           </div>
         </div>
-      )}
     </div>
   );
 };

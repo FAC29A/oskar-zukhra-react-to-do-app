@@ -12,7 +12,7 @@ const GroupsContainer = () => {
 
   return (
     <>
-    <button onClick={addGroup}>Add Group</button>
+    <button onClick={addGroup} className="add-group-button">Add Group</button>
     <div className="groups-container">
       {groups.map((group) => (
         <Group key={group.id} />

@@ -1,45 +1,43 @@
 .group-container {
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 20px;
-    margin: 20px;
-    margin-top: 50px;
-    width: 25%;
-    float: left;
-  }
-  
-  .group-container h2 {
-    margin-top: 0; 
-  }
-  
-  .group-container button {
-    margin-top: 10px; /* Add space between the tasks and the Clear button */
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .group-container button:hover {
-    background-color: #0056b3;
-  }
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  margin: 20px;
+  margin-top: 50px;
+  width: 25%;
+  float: left;
+}
 
-  .group-name-input {
-    font-size: 24px; /* Bigger font size */
-    font-weight: bold; /* Bold text */
-    border-top: none; /* No border on the top */
-    border-right: none; /* No border on the right */
-    border-left: none;
-    border-bottom: 1px solid #ce1515;
-    border-radius: 0%!important;
-    padding: 8px; /* Padding */
-  }
-  
-  .group-name-input:focus {
-    outline: none; /* Remove focus outline */
-    border: 1px solid blue; /* Change border color on focus */
-  }
-  
-  
+.group-container h2 {
+  margin-top: 0;
+}
+
+.group-container button {
+  margin-top: 10px; /* Add space between the tasks and the Clear button */
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.group-container button:hover {
+  background-color: #0056b3;
+}
+
+.group-name-input {
+  font-size: 24px; /* Bigger font size */
+  font-weight: bold; /* Bold text */
+  border-top: none; /* No border on the top */
+  border-right: none; /* No border on the right */
+  border-left: none;
+  border-bottom: 1px solid #ce1515;
+  border-radius: 0% !important;
+  padding: 8px; /* Padding */
+}
+
+.group-name-input:focus {
+  outline: none; /* Remove focus outline */
+  border: 1px solid blue; /* Change border color on focus */
+}

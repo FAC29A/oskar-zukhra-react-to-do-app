@@ -1,13 +1,19 @@
 import React, { useState } from "react";
 import AddTask from "./AddTask";
 import Task from "./Task";
-import "./Group.css";
+import Search from './Search';
+import './Group.css';
 
-const Group = () => {
+const Group = ({ searchTerm }) => {
   const [tasks, setTasks] = useState([]);
-  const [groupName, setGroupName] = useState("Name of the group");
+  const [groupName, setGroupName] = useState('Name of the group');
   const [isAddTaskOpen, setIsAddTaskOpen] = useState(false);
   const [editTask, setEditTask] = useState(null);
+
+  // Filter tasks based on search term
+  const filteredTasks = tasks.filter((task) =>
+    task.title.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   // Function to handle adding a task
   const handleAddOrUpdateTask = (newOrUpdatedTask) => {
@@ -77,7 +83,7 @@ const Group = () => {
           existingTask={editTask} // Pass the editing task if any
         />
       ) : null}
-      {tasks.map((task) => (
+      {filteredTasks.map((task) => (
         <ul>
           <Task
             key={task.id}

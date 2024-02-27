@@ -1,11 +1,11 @@
-const Search = () => {
+const Search = ({ onSearch }) => {
   return (
     <div>
       <input
         type="text"
         name="search"
         placeholder="Search Tasks"
-        onChange={console.log('Search Test')}
+        onChange={(e) => onSearch(e.target.value)}
       ></input>
     </div>
   );

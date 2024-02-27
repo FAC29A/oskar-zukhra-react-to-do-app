@@ -7,18 +7,24 @@ const Group = () => {
   const [tasks, setTasks] = useState([]);
   const [groupName, setGroupName] = useState("Name of the group");
   const [isAddTaskOpen, setIsAddTaskOpen] = useState(false);
+  const [editTask, setEditTask] = useState(null);
 
   // Function to handle adding a task
-  const handleAddTask = (newTask) => {
-    setTasks([
-      ...tasks,
-      {
-        ...newTask,
-        id: Date.now(), // unique ID
-        completed: false,
-      },
-    ]);
-    setIsAddTaskOpen(false); // Close the AddTask modal after adding task
+  const handleAddOrUpdateTask = (newOrUpdatedTask) => {
+    if (editTask) {
+      setTasks(
+        tasks.map((task) =>
+          task.id === editTask.id ? { ...task, ...newOrUpdatedTask } : task
+        )
+      );
+    } else {
+      setTasks([
+        ...tasks,
+        { ...newOrUpdatedTask, id: Date.now(), completed: false },
+      ]);
+    }
+    setIsAddTaskOpen(false);
+    setEditTask(null); // Reset the editing task
   };
 
   const handleDelete = (id) => {
@@ -26,9 +32,9 @@ const Group = () => {
   };
 
   const handleEdit = (id, updatedTask) => {
-    setTasks(
-      tasks.map((task) => (task.id === id ? { ...task, ...updatedTask } : task))
-    );
+    const taskToEdit = tasks.find((task) => task.id === id);
+    setEditTask(taskToEdit); // Set the task to be edited
+    setIsAddTaskOpen(true);
   };
 
   const handleComplete = (id) => {
@@ -64,10 +70,11 @@ const Group = () => {
         <AddTask
           isOpen={isAddTaskOpen}
           onClose={() => {
-            console.log("Closing modal");
             setIsAddTaskOpen(false);
+            setEditTask(null); // Reset the edit task state when closing the modal
           }}
-          onAddTask={handleAddTask}
+          onAddTask={handleAddOrUpdateTask}
+          existingTask={editTask} // Pass the editing task if any
         />
       ) : null}
       {tasks.map((task) => (

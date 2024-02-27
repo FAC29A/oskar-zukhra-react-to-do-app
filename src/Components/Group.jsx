@@ -51,6 +51,10 @@ const Group = ({ searchTerm }) => {
     );
   };
 
+  const handleClearComplete = (id) => {
+    setTasks(tasks.filter((task) => task.id !== id && !task.completed));
+  };
+
   // Function to handle clearing all tasks (later we will clear only the completed tasks)
   const handleClearTasks = () => {
     setTasks([]);
@@ -71,6 +75,7 @@ const Group = ({ searchTerm }) => {
       <div className="button-container">
         <button onClick={() => setIsAddTaskOpen(true)}>Add Task</button>
         <button onClick={handleClearTasks}>Clear Tasks</button>
+        <button onClick={handleClearComplete}>Clear Completed</button>
       </div>
       {isAddTaskOpen ? (
         <AddTask

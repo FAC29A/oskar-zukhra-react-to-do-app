@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Group from './Group';
 import './GroupsContainer.css';
 
-const GroupsContainer = () => {
+const GroupsContainer = ({ searchTerm }) => {
   const [groups, setGroups] = useState([{ id: 1 }, { id: 2 }]); // Initial two groups
 
   const addGroup = () => {
@@ -12,13 +12,14 @@ const GroupsContainer = () => {
 
   return (
     <>
-    <button onClick={addGroup} className="add-group-button">Add Group</button>
-    <div className="groups-container">
-      {groups.map((group) => (
-        <Group key={group.id} />
-      ))}
-
-    </div>
+      <button onClick={addGroup} className="add-group-button">
+        Add Group
+      </button>
+      <div className="groups-container">
+        {groups.map((group) => (
+          <Group key={group.id} searchTerm={searchTerm} />
+        ))}
+      </div>
     </>
   );
 };
